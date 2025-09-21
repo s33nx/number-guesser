@@ -33,6 +33,7 @@ if (guess === winningNum){
 guessInput.disabled = true;
 // change border color
 guessInput.style.borderColor = 'green';
+setMessage(`${winningNum} is correct, YOU WIN!`, 'green')
 }else{
 
 }
