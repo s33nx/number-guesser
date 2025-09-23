@@ -47,11 +47,7 @@ guessBtn.addEventListener('click', function(){
         }else{
             //game continues - answer wrong
 
-<<<<<<< HEAD
             setMessage(`${guess} is not correct. You have ${guessesLeft} guesses left`, 'red');
-=======
-             setMessage(`${guess} is not correct. You have ${guessesLeft} guesses left`, 'red');
->>>>>>> a7513915fadba32b45c750c38accc2d94c0eb27a
         }
     }
 });
