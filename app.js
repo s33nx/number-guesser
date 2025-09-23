@@ -1,7 +1,7 @@
 // Game values 
 let min = 1, 
     max = 10, 
-    winningNum = 2, 
+    winningNum = getRandomNum(min, max), 
     guessesLeft = 3;
 
 // UI Elements
@@ -14,6 +14,13 @@ const game = document.querySelector('#game'),
 
 minNum.textContent = min;
 maxNum.textContent = max;       
+
+// play again event listener
+document.addEventListener('mousedown', function(e){
+    if (e.target.className === 'play-again') {
+        window.location.reload();
+    }
+});
 
 //listen for guess
 guessBtn.addEventListener('click', function(){
@@ -40,7 +47,7 @@ guessBtn.addEventListener('click', function(){
         }else{
             //game continues - answer wrong
 
-            gameOver(false, `${guess} is not correct. You have ${guessesLeft} guesses left`);
+            setMessage(`${guess} is not correct. You have ${guessesLeft} guesses left`, 'red');
         }
     }
 });
@@ -57,9 +64,17 @@ function gameOver(won, msg){
         message.style.color = color;
         setMessage(msg);
 
+        // play again
+        guessBtn.value = 'Play Again';
+        guessBtn.className += 'play-again';
+
 }
 
+//get winning number 
+function getRandomNum(min, max) {
+return Math.floor(Math.random() * (max-min+1) + min);
 
+}
 
 //set message
 function setMessage(msg, color){
