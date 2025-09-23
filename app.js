@@ -28,7 +28,7 @@ guessBtn.addEventListener('click', function(){
         //check if won
         if (guess === winningNum){
             //game over - won
-            gameOver(true, `${winningNum} is correct. YOU WIN!!`)
+            gameOver(true, `${winningNum} is correct. YOU WIN!!`);
 
         }else{
         //wrong number
@@ -36,11 +36,11 @@ guessBtn.addEventListener('click', function(){
 
         if (guessesLeft === 0){
             //Game over 
-            gameOver(true, `Game over. You lost. The correct number is ${winningNum}`)
+            gameOver(false, `Game over. You lost. The correct number is ${winningNum}`);
         }else{
             //game continues - answer wrong
 
-            gameOver(false, `${guess} is not correct. You have ${guessesLeft} guesses left`);
+             setMessage(`${guess} is not correct. You have ${guessesLeft} guesses left`, 'red');
         }
     }
 });
